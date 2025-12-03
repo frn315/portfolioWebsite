@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-theme-bg text-theme-text;
+  }
+}
+
+@layer components {
+  .heroButton {
+    @apply px-3 md:px-6 py-2 border border-theme-border rounded-full uppercase text-xs tracking-widest text-theme-text-secondary transition-all hover:border-theme-accent hover:text-theme-accent hover:bg-theme-accent/10;
+  }
+
+  .contactInput {
+    @apply outline-none bg-theme-card rounded-lg border-b-2 px-6 py-3 md:py-4 border-theme-border text-theme-text placeholder-theme-text-secondary transition-all focus:border-theme-accent focus:text-theme-accent hover:border-theme-accent/40;
+  }
+}
