@@ -9,21 +9,16 @@ type Props = {
 };
 
 export default function Skill({ skill, directionLeft }: Props) {
-  const [initialPos, setInitialPos] = React.useState({ x: 0, y: 0 });
-
-  React.useEffect(() => {
-    const x = (Math.random() - 0.5) * 600;
-    const y = (Math.random() - 0.5) * 600;
-    setInitialPos({ x, y });
-  }, []);
-
   return (
     <div className="group relative flex cursor-pointer">
       <motion.div
-        initial={{ x: initialPos.x, y: initialPos.y, opacity: 0, scale: 0.5 }}
-        whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-        viewport={{ once: false }}
-        transition={{ duration: 1.5, type: "spring" }}
+        initial={{
+          x: directionLeft ? -200 : 200,
+          opacity: 0,
+        }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
         className="rounded-full border border-theme-border bg-theme-card w-14 h-14 md:w-16 md:h-16 xl:w-20 xl:h-20 filter group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-theme-accent/50 transition duration-300 ease-in-out flex items-center justify-center relative overflow-hidden"
       >
         <Image
