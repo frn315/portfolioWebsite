@@ -67,11 +67,11 @@ const Skills = ({ skills }: Props) => {
   // Layout: 4 - 6 - 6 - 6 - 6 - 4
   // Total: 32
 
-  const renderRow = (startIndex: number, count: number, directionLeft?: boolean) => {
+  const renderRow = (startIndex: number, count: number) => {
     return (
       <div className="flex justify-center gap-5 md:gap-7 mb-5 md:mb-7">
         {skillItems.slice(startIndex, startIndex + count).map((skill, i) => (
-          <SkillItem key={startIndex + i} skill={skill} directionLeft={directionLeft} />
+          <SkillItem key={startIndex + i} skill={skill} index={startIndex + i} />
         ))}
       </div>
     );
@@ -89,12 +89,12 @@ const Skills = ({ skills }: Props) => {
       </h3>
 
       <div className="flex flex-col items-center justify-center mt-20">
-        {renderRow(0, 4, true)}
-        {renderRow(4, 6, false)}
-        {renderRow(10, 6, true)}
-        {renderRow(16, 6, false)}
-        {renderRow(22, 6, true)}
-        {renderRow(28, 4, false)}
+        {renderRow(0, 4)}
+        {renderRow(4, 6)}
+        {renderRow(10, 6)}
+        {renderRow(16, 6)}
+        {renderRow(22, 6)}
+        {renderRow(28, 4)}
       </div>
     </motion.div>
   );
